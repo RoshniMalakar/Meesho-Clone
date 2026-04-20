@@ -1,0 +1,2292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meesho</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .top_nav {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 70px;
+        gap: 30px;
+        background-color: white;
+      }
+      .top_nav .logo img {
+        width: 150px;
+        margin-left: 50px;
+      }
+      .top_nav .search {
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 600px;
+        padding: 10px 10px;
+        font-size: 20px;
+        color: gray;
+        display: flex;
+      }
+      .top_nav .search input {
+        width: 450px;
+        border: none;
+        font-size: 15px;
+        margin-left: 5px;
+      }
+      .top_nav .txt {
+        display: flex;
+        width: 200px;
+      }
+      .top_nav .txt p {
+        border-right: 1px solid black;
+        padding: 0px 10px;
+      }
+      .top_nav .detail {
+        display: flex;
+        text-align: center;
+        font-size: 18px;
+      }
+      .top_nav .detail .profile {
+        padding: 5px 20px;
+        position: relative;
+      }
+      .top_nav .detail .profile .prof_detail {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 5px;
+        z-index: 4;
+        background-color: white;
+        width: 250px;
+        text-align: left;
+        padding: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .top_nav .detail .profile .prof_detail a {
+        text-decoration: none;
+        color: black;
+      }
+      .top_nav .detail .profile .prof_detail p {
+        font-size: 15px;
+        color: grey;
+      }
+      .top_nav .detail .profile .prof_detail h4 {
+        padding: 15px 0px;
+      }
+      .top_nav .detail .profile .prof_detail button {
+        background-color: purple;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 10px 100px;
+        margin: 10px 0px;
+      }
+      .top_nav .detail .profile:hover .prof_detail {
+        display: block;
+      }
+      .top_nav .detail .cart {
+        padding: 5px 20px;
+      }
+
+      .second {
+        background-color: white;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      .second .container {
+        list-style-type: none;
+        display: flex;
+        white-space: nowrap;
+        overflow: hidden;
+        overflow-x: scroll;
+        gap: 20px;
+        padding: 10px 0px;
+      }
+      .second .container::-webkit-scrollbar{
+        display: none;
+      }
+      .second .container li a {
+        padding: 9px 0px;
+        text-decoration: none;
+        color: black;
+      }
+      .second .container li a:hover {
+        color: rgb(128, 0, 70);
+        border-bottom: 3px solid rgb(128, 0, 70);
+      }
+      .container .con {
+        display: flex;
+        position: fixed;
+        background-color: white;
+        color: black;
+        width: 90%;
+        margin: 0px;
+        border: 1px solid grey;
+      }
+      .container .con ul {
+        display: block;
+        padding: 10px;
+        list-style-type: none;
+      }
+      .container .con ul li {
+        margin: 0px;
+        padding: 10px 0px;
+      }
+      .container .con ul:nth-child(even) {
+        background-color: rgb(230, 226, 230);
+      }
+      .container .con ul li:first-child {
+        color: purple;
+        font-weight: bold;
+      }
+      .container .con ul li a:hover {
+        color: rgb(160, 158, 158);
+        border: none;
+      }
+      .container1 {
+        position: relative;
+      }
+      .container1 .con1 {
+        display: none;
+        position: absolute;
+        top: 28px;
+      }
+      .container1:hover .con1 {
+        display: block;
+      }
+      .container2 {
+        position: relative;
+      }
+      .container2 .con2 {
+        display: none;
+        position: absolute;
+        color: black;
+        top: 28px;
+        left: -85px;
+      }
+      .container2:hover .con2 {
+        display: block;
+      }
+      .container3 {
+        position: relative;
+      }
+      .container3 .con3 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -250px;
+      }
+      .container3:hover .con3 {
+        display: block;
+      }
+      .container4 {
+        position: relative;
+      }
+      .container4 .con4 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -400px;
+      }
+      .container4:hover .con4 {
+        display: block;
+      }
+      .container5 {
+        position: relative;
+      }
+      .container5 .con5 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -400px;
+      }
+      .container5:hover .con5 {
+        display: block;
+      }
+      .container6 {
+        position: relative;
+      }
+      .container6 .con6 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -550px;
+      }
+      .container6:hover .con6 {
+        display: block;
+      }
+      .container7 {
+        position: relative;
+      }
+      .container7 .con7 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -650px;
+      }
+      .container7:hover .con7 {
+        display: block;
+      }
+      .container8 {
+        position: relative;
+      }
+      .container8 .con8 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -785px;
+      }
+      .container8:hover .con8 {
+        display: block;
+      }
+      .container9 {
+        position: relative;
+      }
+      .container9 .con9 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -985px;
+      }
+      .container9:hover .con9 {
+        display: block;
+      }
+      .container10 {
+        position: relative;
+      }
+      .container10 .con10 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -1085px;
+      }
+      .container10:hover .con10 {
+        display: block;
+      }
+      .container11 {
+        position: relative;
+      }
+      .container11 .con11 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -1185px;
+      }
+      .container11:hover .con11 {
+        display: block;
+      }
+      .container12 {
+        position: relative;
+      }
+      .container12 .con12 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -1285px;
+      }
+      .container12:hover .con12 {
+        display: block;
+      }
+      .container13 {
+        position: relative;
+      }
+      .container13 .con13 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -1385px;
+      }
+      .container13:hover .con13 {
+        display: block;
+      }
+      .container14 {
+        position: relative;
+      }
+      .container14 .con14 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -1500px;
+      }
+      .container14:hover .con14 {
+        display: block;
+      }
+      .container15 {
+        position: relative;
+      }
+      .container15 .con15 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -1700px;
+      }
+      .container15:hover .con15 {
+        display: block;
+      }
+      .container16 {
+        position: relative;
+      }
+      .container16 .con16 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -1800px;
+      }
+      .container16:hover .con16 {
+        display: block;
+      }
+      .container17 {
+        position: relative;
+      }
+      .container17 .con17 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -1850px;
+      }
+      .container17:hover .con17 {
+        display: block;
+      }
+      .container18 {
+        position: relative;
+      }
+      .container18 .con18 {
+        display: none;
+        position: absolute;
+        top: 28px;
+        left: -1950px;
+      }
+      .container18:hover .con18 {
+        display: block;
+      }
+
+      .imgs .img1 img {
+        width: 100%;
+        z-index: -1;
+      }
+      .imgs .img1 {
+        position: absolute;
+        z-index: -1;
+      }
+      .imgs .img_t {
+        position: relative;
+        top: 95px;
+        left: 1000px;
+        color: white;
+        width: fit-content;
+        z-index: -1;
+      }
+      .imgs .img_t button {
+        margin-top: 25px;
+        padding: 15px 30px;
+        font-size: 25px;
+        border-radius: 10px;
+      }
+
+      .card {
+        display: flex;
+        margin-top: 230px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        gap: 30px;
+        background-color: white;
+      }
+      .card p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card p img {
+        width: 20px;
+      }
+
+      .item {
+        background-color: white;
+        margin-top: 20px;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      .item .items {
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+      }
+      .item .items .img {
+        margin: 20px;
+      }
+      .item .items .img:hover {
+        margin: 15px 20px 25px 20px;
+      }
+      .item .items p {
+        text-align: center;
+        color: grey;
+        padding: 10px 0px;
+      }
+
+      .four_img {
+        margin-top: 20px;
+      }
+      .four_img .main_img img {
+        width: 100%;
+        position: absolute;
+      }
+      .four_img .img4 {
+        position: relative;
+        left: 900px;
+        top: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 300px;
+      }
+      .four_img .img4 img {
+        width: 140px;
+        margin: 20px;
+      }
+      .four_img .img4 img:hover {
+        margin: 15px 20px 25px 20px;
+      }
+      .four_img .btn {
+        position: relative;
+        left: 170px;
+        top: 15px;
+        width: fit-content;
+      }
+      .four_img .btn button {
+        padding: 15px 20px;
+        font-size: 20px;
+        border: 1px solid goldenrod;
+        border-radius: 10px;
+        background-color: rgb(71, 27, 27);
+        color: goldenrod;
+      }
+
+      .item_slid {
+        margin-top: 90px;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      .item_slid .text {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 5px;
+      }
+      .item_slid .text p {
+        font-size: 30px;
+      }
+      .item_slid .text a {
+        font-size: 20px;
+        color: rgb(220, 43, 226);
+        text-decoration: none;
+      }
+      .item_slid .slide {
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+      }
+      .item_slid .slide img {
+        padding: 10px;
+      }
+
+      .brands {
+        background-color: rgb(216, 211, 211);
+        margin-top: 20px;
+      }
+      .brands img:hover {
+        margin: 15px 10px 25px 10px;
+      }
+      .brands img {
+        width: 100px;
+        padding: 10px 50px;
+        background-color: white;
+        margin: 20px 10px;
+        height: 90px;
+        border-radius: 10px;
+      }
+
+      .offer .first {
+        position: absolute;
+      }
+      .offer .first img {
+        width: 100%;
+      }
+      .offer .item_4 {
+        display: flex;
+        position: relative;
+        left: 530px;
+        top: 30px;
+        gap: 20px;
+        width: fit-content;
+      }
+      .offer .item_4 .img {
+        margin: 10px;
+      }
+      .offer .item_4 .img:hover {
+        margin: 5px 10px 15px 10px;
+      }
+      .offer .item_4 .img img {
+        width: 150px;
+      }
+      .offer .item_4 .img p {
+        text-align: center;
+        padding: 10px;
+        background-color: white;
+        color: rgb(72, 27, 78);
+        border: 1px solid goldenrod;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 5px;
+      }
+      .offer .download {
+        position: relative;
+        width: fit-content;
+        left: 50px;
+        top: -40px;
+      }
+      .offer .download button {
+        border: none;
+        border-radius: 10px;
+        font-size: 25px;
+        padding: 10px 20px;
+      }
+
+      .product {
+        margin-top: 50px;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      .product h1 {
+        padding: 20px 0px;
+      }
+      .product .box {
+        display: flex;
+      }
+      .product .box .pro_txt {
+        width: fit-content;
+      }
+      .product .box .pro_txt .sort {
+        display: flex;
+        border: 1px solid grey;
+        border-radius: 10px;
+        width: 200px;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: gray;
+      }
+      .product .box .pro_txt .sort select {
+        border: none;
+        font-size: 18px;
+        width: 135px;
+      }
+      .product .box .pro_txt .pro_detail {
+        border: 1px solid grey;
+        border-radius: 10px;
+        margin-top: 20px;
+        padding: 10px 20px;
+        width: 200px;
+      }
+      .product .box .pro_txt .pro_detail .txt {
+        padding: 10px 0px;
+      }
+      .product .box .pro_txt .pro_detail ul li {
+        width: 195px;
+        border: none;
+        padding: 15px 0px;
+        font-size: 18px;
+        color: black;
+        list-style-type: none;
+        border-bottom: 1px solid grey;
+      }
+      .product .box .pro_txt .pro_detail ul li i {
+        text-align: right;
+        font-size: 12px;
+      }
+      .product .box .pro_txt .pro_detail ul li i:hover {
+        transform: rotate(180deg);
+      }
+      .product .box .pro_item {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-left: 20px;
+        gap: 20px;
+        height: fit-content;
+      }
+      .product .box .pro_item .img {
+        border: 1px solid grey;
+        border-radius: 10px;
+        width: fit-content;
+        height: fit-content;
+        padding: 10px 0px;
+      }
+      .product .box .pro_item .img img {
+        width: 200px;
+        height: 200px;
+      }
+      .product .box .pro_item .img p {
+        padding: 10px 10px;
+      }
+      .product .box .pro_item .img p a {
+        text-decoration: none;
+        color: grey;
+      }
+      .product .box .pro_item .img .price {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0px 10px;
+      }
+      .product .box .pro_item .img .price h3 {
+        color: grey;
+      }
+      .product .box .pro_item .img .price h4 {
+        color: green;
+      }
+      .product .box .pro_item .img .rating {
+        display: flex;
+        padding: 0px 10px;
+      }
+      .product .box .pro_item .img .rating button {
+        padding: 0px 10px;
+        border: none;
+        border-radius: 20px;
+        background-color: rgb(90, 148, 90);
+        color: white;
+        font-weight: bold;
+      }
+
+      .li_1 {
+        display: none;
+        position: absolute;
+      }
+      .filter1:hover .li_1 {
+        display: block;
+      }
+      .li_2 {
+        position: absolute;
+        display: none;
+      }
+      .filter2:hover .li_2 {
+        display: block;
+      }
+      .li_3 {
+        position: absolute;
+        display: none;
+      }
+      .filter3:hover .li_3 {
+        display: block;
+      }
+      .li_4 {
+        position: absolute;
+        display: none;
+      }
+      .filter4:hover .li_4 {
+        display: block;
+      }
+      .li_5 {
+        position: absolute;
+        display: none;
+      }
+      .filter5:hover .li_5 {
+        display: block;
+      }
+      .li_6 {
+        position: absolute;
+        display: none;
+      }
+      .filter6:hover .li_6 {
+        display: block;
+      }
+      .li_7 {
+        position: absolute;
+        display: none;
+      }
+      .filter7:hover .li_7 {
+        display: block;
+      }
+      .li_8 {
+        position: absolute;
+        display: none;
+      }
+      .filter8:hover .li_8 {
+        display: block;
+      }
+
+      .name {
+        background-color: white;
+        color: black;
+        padding: 10px 5px;
+        width: 200px;
+      }
+      .name input {
+        padding: 10px;
+        margin: 10px 0px;
+      }
+      .name button {
+        background-color: white;
+        color: black;
+        border: 1px solid rgb(160, 158, 158);
+        border-radius: 20px;
+        padding: 10px 15px;
+        margin: 5px;
+      }
+
+      @media screen and (max-width: 640px) {
+        .top_nav {
+          display: block;
+          height: fit-content;
+          margin: 10px 0px;
+          font-size: 30px;
+        }
+        .top_nav .logo img {
+          width: 200px;
+          margin: 10px;
+        }
+        .top_nav .search {
+          width: 300px;
+          margin-left: 10px;
+          font-size: 30px;
+        }
+        .top_nav .search input {
+          font-size: 25px;
+          width: 250px;
+        }
+        .top_nav .txt {
+          display: none;
+        }
+        .top_nav .detail {
+          width: fit-content;
+          margin-left: 330px;
+          margin-top: -40px;
+        }
+        .top_nav .detail p {
+          display: none;
+        }
+        .top_nav .detail .profile {
+          padding: 5px;
+          font-size: 25px;
+        }
+        .top_nav .detail .cart {
+          padding: 5px;
+          font-size: 25px;
+        }
+
+        hr {
+          display: none;
+        }
+
+        .second {
+          width: 380px;
+          margin: 20px 20px;
+        }
+        .second .container {
+          padding: 0px;
+          margin: 0px;
+          font-size: 20px;
+        }
+
+        .imgs .img1 img {
+          width: 413px;
+          height: 150px;
+          position: none;
+        }
+        .imgs .img_t {
+          display: none;
+        }
+
+        .card {
+          display: none;
+        }
+
+        .item {
+          margin: 175px 0px 0px 0px;
+          width: 412px;
+        }
+        .item .items .img {
+          margin: 10px 5px;
+        }
+        .item .items .img:hover {
+          margin: 5px 5px 15px 5px;
+        }
+
+        .four_img {
+          display: none;
+        }
+
+        .item_slid {
+          width: 400px;
+          margin: 10px;
+          font-size: 30px;
+        }
+        .item_slid .text {
+          align-items: center;
+        }
+        .item_slid .slide {
+          gap: 10px;
+          margin: 0px 5px 0px 0px;
+        }
+        .item_slid .slide img {
+          padding: 0px;
+        }
+
+        .brands {
+          width: 410px;
+        }
+
+        .offer {
+          display: none;
+        }
+
+        .product {
+          margin-left: 5px;
+          margin-top: 10px;
+        }
+        .product .box {
+          display: block;
+          margin-left: 0px;
+        }
+        .product .box .pro_txt .sort {
+          display: none;
+        }
+        .product .box .pro_txt .pro_detail .txt {
+          display: none;
+        }
+        .product .box .pro_txt .pro_detail {
+          width: 400px;
+          padding: 0px;
+          margin: 0px;
+          border-radius: 0px;
+        }
+        .product .box .pro_txt .pro_detail ul {
+          display: flex;
+          gap: 20px;
+          overflow: hidden;
+          overflow-x: scroll;
+          padding: 10px 10px;
+        }
+        .product .box .pro_txt .pro_detail ul li {
+          border: none;
+          padding: 0px;
+          white-space: nowrap;
+          font-size: 25px;
+        }
+        .name {
+          width: fit-content;
+          white-space: nowrap;
+          padding: 10px;
+        }
+        .name button {
+          display: block;
+        }
+        .li_1 {
+          left: 6px;
+        }
+        .li_2 {
+          left: 6px;
+        }
+        .li_3 {
+          left: 6px;
+        }
+        .li_4 {
+          left: 6px;
+        }
+        .li_5 {
+          left: 6px;
+        }
+        .li_6 {
+          left: 6px;
+        }
+        .li_7 {
+          left: 6px;
+        }
+        .li_8 {
+          left: 6px;
+        }
+        .product .box .pro_item {
+          grid-template-columns: 1fr 1fr;
+          margin: 0px;
+          gap: 0px;
+        }
+        .product .box .pro_item .img {
+          border-radius: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top_nav">
+      <div class="logo">
+        <img
+          src="https://www.meesho.com/assets/svgicons/meeshoLogo.svg"
+          alt=""
+        />
+      </div>
+      <div class="search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="text" placeholder="Search on meesho" />
+      </div>
+      <div class="txt">
+        <p>Become a Supplier</p>
+        <p>Investor Relations</p>
+      </div>
+      <div class="detail">
+        <div class="profile">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <p>Profile</p>
+          <div class="prof_detail">
+            <h3>Hello User</h3>
+            <p>To access your Meesho Account</p>
+            <button type="submit">Sign in</button>
+            <hr />
+            <h4>
+              <a href="#"
+                ><i class="fa-solid fa-bag-shopping"></i>&nbsp;&nbsp;&nbsp;My
+                Orders</a
+              >
+            </h4>
+            <hr />
+            <h4><a href="#">Delete Account</a></h4>
+          </div>
+        </div>
+        <div class="cart">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <p>Cart</p>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="second">
+      <ul class="container">
+        <li class="container1">
+          <a href="#">Popular</a>
+          <div class="con1">
+            <div class="con">
+              <ul>
+                <li>Featured on Meesho</li>
+                <li><a href="#">Smartphones</a></li>
+                <li><a href="#">Top Brands</a></li>
+                <li><a href="#">Shimla Apples</a></li>
+              </ul>
+              <ul>
+                <li>All Popular</li>
+                <li><a href="#">Jewellery</a></li>
+                <li><a href="#">Men Fashion</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Footwear</a></li>
+                <li><a href="#">Beauty & Personal Care</a></li>
+                <li><a href="#">Grocery</a></li>
+                <li><a href="#">Electronics</a></li>
+                <li><a href="#">Innerwear & Nightwear</a></li>
+                <li><a href="#">Kitchen & Appliances</a></li>
+                <li><a href="#">Bags & Luggage</a></li>
+                <li><a href="#">Healthcare</a></li>
+                <li><a href="#">Stationery & Office Supplies</a></li>
+                <li><a href="#">Bike & Car</a></li>
+                <li><a href="#">Furniture</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container2">
+          <a href="#">Kurti, Saree & Lehenga</a>
+          <div class="con2">
+            <div class="con">
+              <ul>
+                <li>Sarees</li>
+                <li><a href="">All Sarees</a></li>
+                <li><a href="">Georgette Sarees</a></li>
+                <li><a href="">Chiffon Sarees</a></li>
+                <li><a href="">Cotton sarees</a></li>
+              </ul>
+              <ul>
+                <li>Kurtis</li>
+                <li><a href="">All Kurtis</a></li>
+                <li><a href="">Cotton Kurtis</a></li>
+                <li><a href="">Anarkali Kurtis</a></li>
+                <li><a href="">Rayon Kurtis</a></li>
+              </ul>
+              <ul>
+                <li>Kurta Sets</li>
+                <li><a href="">All Kurta Sets</a></li>
+                <li><a href="">Kurta Plazoo Sets</a></li>
+                <li><a href="">Kurta Pant Sets</a></li>
+                <li><a href="">Sharara Sets</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container3">
+          <a href="#">Women Westerns</a>
+          <div class="con3">
+            <div class="con">
+              <ul>
+                <li>Top Wear</li>
+                <li><a href="#">All TopWear</a></li>
+                <li><a href="#">Tops & Tunics</a></li>
+                <li><a href="#">Dresses</a></li>
+                <li><a href="#">T-shirts</a></li>
+                <li><a href="#">Gowns</a></li>
+                <li><a href="#">Tops & Bottom Sets</a></li>
+              </ul>
+              <ul>
+                <li>Bottom wear</li>
+                <li><a href="#">All Bottomwear</a></li>
+                <li><a href="#">Jeans & Jeggings</a></li>
+                <li><a href="#">Plazzoos</a></li>
+                <li><a href="#">Trousers & Pants</a></li>
+                <li><a href="#">Leggings</a></li>
+                <li><a href="#">Shorts & Skirts</a></li>
+              </ul>
+              <ul>
+                <li>Winter Wear</li>
+                <li><a href="#">Jackets</a></li>
+                <li><a href="#">Sweatshirts</a></li>
+                <li><a href="#">Sweaters</a></li>
+                <li><a href="#">Capes, Shrug & Ponchos</a></li>
+              </ul>
+              <ul>
+                <li>Plus Size</li>
+                <li><a href="#">Plus Size - Dresses & Gowns</a></li>
+                <li><a href="#">Plus Size - Tops & Tees</a></li>
+                <li><a href="#">Plus size - Bottomwear</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container4">
+          <a href="#">Men</a>
+          <div class="con4">
+            <div class="con">
+              <ul>
+                <li>Top Wear</li>
+                <li><a href="#">Summer T-Shirts</a></li>
+                <li><a href="#">Shirts</a></li>
+                <li><a href="#">T-Shirts Combos</a></li>
+              </ul>
+              <ul>
+                <li>Bottom Wear</li>
+                <li><a href="#">Jeans</a></li>
+                <li><a href="#">Cargos/Trousers</a></li>
+                <li><a href="#">Dhotis/Lungis</a></li>
+              </ul>
+              <ul>
+                <li>Ethnic Wear</li>
+                <li><a href="#">Kurtas</a></li>
+                <li><a href="#">Kurta Sets</a></li>
+                <li><a href="#">Nehru Jacket</a></li>
+              </ul>
+              <ul>
+                <li>Inner Wear</li>
+                <li><a href="#">Vests</a></li>
+                <li><a href="#">Briefs</a></li>
+                <li><a href="#">Boxers</a></li>
+              </ul>
+              <ul>
+                <li>Sports Wear</li>
+                <li><a href="#">Trackpants</a></li>
+                <li><a href="#">Tracksuits</a></li>
+                <li><a href="#">Gym Tshirts</a></li>
+              </ul>
+              <ul>
+                <li>Night Wear</li>
+                <li><a href="#">Pyjamas</a></li>
+                <li><a href="#">Night Shorts</a></li>
+                <li><a href="#">Nightsuits</a></li>
+              </ul>
+              <ul>
+                <li>Winter Wear</li>
+                <li><a href="#">Shrugs</a></li>
+                <li><a href="#">Jackets</a></li>
+                <li><a href="#">Sweatshirts</a></li>
+              </ul>
+              <ul>
+                <li>Combo Store</li>
+                <li><a href="#">Rakhi Specials</a></li>
+                <li><a href="#">Shirts Combo</a></li>
+                <li><a href="#">Innerwear Combo</a></li>
+              </ul>
+              <ul>
+                <li>Accesories</li>
+                <li><a href="#">All Accessories</a></li>
+                <li><a href="#">Watches</a></li>
+                <li><a href="#">Wallets</a></li>
+                <li><a href="#">Jewellery</a></li>
+                <li><a href="#">Sunglasses & Spectacle Frames</a></li>
+                <li><a href="#">Belts</a></li>
+              </ul>
+              <ul>
+                <li>Footwear</li>
+                <li><a href="#">Men Footwear</a></li>
+                <li><a href="#">Men Casual Shoes</a></li>
+                <li><a href="#">Men Sports Shoes</a></li>
+                <li><a href="#">Men Flip Flops and Sandals</a></li>
+                <li><a href="#">Men Formal Shoes</a></li>
+                <li><a href="#">Loafers</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container5">
+          <a href="#">Kids & Toys</a>
+          <div class="con5">
+            <div class="con">
+              <ul>
+                <li>Kids Clothing</li>
+                <li><a href="#">Girls</a></li>
+                <li><a href="#">Boys</a></li>
+                <li><a href="#">Babies</a></li>
+                <li><a href="#">Clothing Sets</a></li>
+                <li><a href="#">Frocks & Dresses</a></li>
+                <li><a href="#">T-Shirt & Polos</a></li>
+              </ul>
+              <ul>
+                <li>Kids Toys</li>
+                <li><a href="#">Toys & Games</a></li>
+                <li><a href="#">Summer Picks</a></li>
+                <li><a href="#">Best Sellers</a></li>
+                <li><a href="#">Baby Gears</a></li>
+              </ul>
+              <ul>
+                <li>Kids Accesories</li>
+                <li><a href="#">Bags & Backpacks</a></li>
+                <li><a href="#">Kids Accessories</a></li>
+                <li><a href="#">Party Items</a></li>
+              </ul>
+              <ul>
+                <li>Baby Care</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Baby Bedding & Accessories</a></li>
+                <li><a href="#">Newborn Care</a></li>
+                <li><a href="#">Diapers</a></li>
+                <li><a href="#">Baby Mosquito nets</a></li>
+                <li><a href="#">Baby Dry Sheets</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container6">
+          <a href="#">Home & Kitchen</a>
+          <div class="con6">
+            <div class="con">
+              <ul>
+                <li>Home Decor</li>
+                <li><a href="">View All</a></li>
+                <li><a href="">Covers</a></li>
+                <li><a href="">Key Holders</a></li>
+                <li><a href="">Artificial Plants</a></li>
+                <li><a href="">Pooja Needs</a></li>
+                <li><a href="">Party Supplies</a></li>
+                <li><a href="">Wallpapers & Stickers</a></li>
+                <li><a href="">Showpieces & Idols</a></li>
+                <li><a href="">Clocks & Wall Decor</a></li>
+              </ul>
+              <ul>
+                <li>Kitchen & Appliances</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Storage & Organizers</a></li>
+                <li><a href="#">Cookware</a></li>
+                <li><a href="#">Kitchen Tools</a></li>
+                <li><a href="#">Kitchen Appliances</a></li>
+                <li><a href="#">Dinnerware</a></li>
+                <li><a href="#">Glasses & Barware</a></li>
+                <li><a href="#">Kitchen Linen</a></li>
+                <li><a href="#">Home Appliances</a></li>
+              </ul>
+              <ul>
+                <li>Home Texttiles</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Bedsheets</a></li>
+                <li><a href="#">Curtains & Accessories</a></li>
+                <li><a href="#">Doormats & Carpets</a></li>
+                <li><a href="#">Pillow, Cushion & Covers</a></li>
+                <li><a href="#">Blankets & Comforters</a></li>
+              </ul>
+              <ul>
+                <li>Home Improvement</li>
+                <li><a href="#">All Home Essentials</a></li>
+                <li><a href="#">Bathroom Accessories</a></li>
+                <li><a href="#">Cleaning Supplies</a></li>
+                <li><a href="#">Gardening</a></li>
+                <li><a href="#">Home Tools</a></li>
+                <li><a href="#">Insect Protection</a></li>
+              </ul>
+              <ul>
+                <li>Furniture</li>
+                <li><a href="#">Shoe Racks</a></li>
+                <li><a href="#">Study Tables</a></li>
+                <li><a href="#">Collapsible Wardrobes</a></li>
+                <li><a href="#">Wall Shelves</a></li>
+                <li><a href="#">Home Temple</a></li>
+                <li><a href="#">Hammock Swing</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container7">
+          <a href="#">Beauty & Health</a>
+          <div class="con7">
+            <div class="con">
+              <ul>
+                <li>Makeup</li>
+                <li><a href="#">Lipstick</a></li>
+                <li><a href="#">Eye Shadow and Liner</a></li>
+                <li><a href="#">Face Makeup</a></li>
+                <li><a href="#">Makeup Kits & Combos</a></li>
+                <li><a href="#">Hair Curlers</a></li>
+                <li><a href="#">Nail Makeup</a></li>
+                <li><a href="#">Brushes & Accessories</a></li>
+                <li><a href="#">Hair Removal</a></li>
+                <li><a href="#">Perfumes & More</a></li>
+              </ul>
+              <ul>
+                <li>Healthcare</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Oral Care</a></li>
+                <li><a href="#">Winter Healthcare</a></li>
+                <li><a href="#"> Ear Cleaner</a></li>
+                <li><a href="#">Health Monitor & Massagers</a></li>
+                <li><a href="#">Foot care</a></li>
+                <li><a href="#">Sexual Wellness</a></li>
+                <li><a href="#">Ayurveda & Nutrition</a></li>
+                <li><a href="#">Sanitary Pads & More</a></li>
+              </ul>
+              <ul>
+                <li>Personal Care</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Body Lotion</a></li>
+                <li><a href="#">Hair Oil & Shampoo</a></li>
+                <li><a href="#">Whitening Creams</a></li>
+                <li><a href="#">Straighteners & Dryers</a></li>
+                <li><a href="#">Face Oil & Serum</a></li>
+                <li><a href="#">Face Wash </a></li>
+                <li><a href="#">Face Masks & Peels </a></li>
+                <li><a href="#">Peels Soaps & Scrub</a></li>
+              </ul>
+              <ul>
+                <li>Baby & Mum</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Baby Care Essentials</a></li>
+                <li><a href="#">Mom Care</a></li>
+              </ul>
+              <ul>
+                <li>Mens Care</li>
+                <li><a href="#">Trimmers</a></li>
+                <li><a href="#">Beard Oil</a></li>
+                <li><a href="#">Men Perfumes & Deodorant</a></li>
+                <li><a href="#">Hair Gels, Wax & Spray</a></li>
+                <li><a href="#">Men's Face & Body Care</a></li>
+                <li><a href="#">Budget Grooming Kits</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container8">
+          <a href="#">Jewellery & Accessories</a>
+          <div class="con8">
+            <div class="con">
+              <ul>
+                <li>Jewellery</li>
+                <li><a href="#">All Jewellery</a></li>
+                <li><a href="#">Jewellery Sets</a></li>
+                <li><a href="#">Earrings</a></li>
+                <li><a href="#">Mangalsutras</a></li>
+                <li><a href="#">Necklaces & Chains</a></li>
+                <li><a href="#">Bangles & Bracelets</a></li>
+                <li><a href="#">Anklets & Nosepins</a></li>
+                <li><a href="#">Kamarbandh & Maangtika</a></li>
+              </ul>
+              <ul>
+                <li>Men Accessories</li>
+                <li><a href="#">All Accessories</a></li>
+                <li><a href="#">Men Watches</a></li>
+                <li><a href="#">Wallets</a></li>
+                <li><a href="#">Men Jewellery</a></li>
+                <li><a href="#">Sunglasses & Spectacle Frames</a></li>
+                <li><a href="#">Belts</a></li>
+              </ul>
+              <ul>
+                <li>Women Accessories</li>
+                <li><a href="#">All Accessories</a></li>
+                <li><a href="#">Women Watches</a></li>
+                <li><a href="#">Hair Accessories</a></li>
+                <li><a href="#">Women Belts</a></li>
+                <li><a href="#">Sunglasses & Spectacle Frames</a></li>
+                <li><a href="#">Scarves, Stoles & Gloves</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container9">
+          <a href="#">Bags & Footwear</a>
+          <div class="con9">
+            <div class="con">
+              <ul>
+                <li>Women Footwear</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Heels and Sandals</a></li>
+                <li><a href="#">Flipflops & Slippers</a></li>
+                <li><a href="#">Boots</a></li>
+                <li><a href="#">Bellies and Ballerinas</a></li>
+              </ul>
+              <ul>
+                <li>Men Footwear</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Men Casual Shoes</a></li>
+                <li><a href="#">Men Sports Shoes</a></li>
+                <li><a href="#">Men Flip Flops and Sandals</a></li>
+                <li><a href="#">Men Formal Shoes</a></li>
+                <li><a href="#">Loafers</a></li>
+              </ul>
+              <ul>
+                <li>Kids Footwear</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Boys Shoes</a></li>
+                <li><a href="#">Girls Shoes</a></li>
+                <li><a href="#">Casual Shoes</a></li>
+                <li><a href="#">Flipflops & Slippers</a></li>
+                <li><a href="#">Sandals</a></li>
+              </ul>
+              <ul>
+                <li>Women Bags</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Backpacks</a></li>
+                <li><a href="#">Handbags</a></li>
+                <li><a href="#">Slingbags</a></li>
+                <li><a href="#">Wallets</a></li>
+                <li><a href="#">Clutches</a></li>
+              </ul>
+              <ul>
+                <li>Men Bags</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Backpacks</a></li>
+                <li><a href="#">Waist Bags</a></li>
+                <li><a href="#">Crossbody Bags & Sling Bags</a></li>
+              </ul>
+              <ul>
+                <li>Travel Bags, Luggage and Accessories</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Duffel & Trolley Bags</a></li>
+                <li><a href="#">VLaptop & Messenger Bags</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container10">
+          <a href="#">Electronics</a>
+          <div class="con10">
+            <div class="con">
+              <ul>
+                <li>Audio & Mobiles</li>
+                <li><a href="#">Neckband</a></li>
+                <li><a href="#">Speakers</a></li>
+                <li><a href="#">Cases & Covers</a></li>
+                <li><a href="#">Bluetooth Earbuds</a></li>
+                <li><a href="#">Wired Earphone</a></li>
+              </ul>
+              <ul>
+                <li>Accessories</li>
+                <li><a href="#">Mobile Holders</a></li>
+                <li><a href="#">Mobile Chargers & Cables</a></li>
+                <li><a href="#">Power Banks</a></li>
+                <li><a href="#">Microphone</a></li>
+                <li><a href="#">Selfie Stick & Ringlight</a></li>
+                <li><a href="#">Tripod & Monopod</a></li>
+                <li><a href="#">Extension Cord</a></li>
+                <li><a href="#">Screen Expanders & Magnifiers</a></li>
+                <li><a href="#">View All</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container11">
+          <a href="#">Watches</a>
+          <div class="con11">
+            <div class="con">
+              <ul>
+                <li>Watches</li>
+                <li><a href="#">Analog Watches</a></li>
+                <li><a href="#">Digital Watches</a></li>
+                <li><a href="#">Sport Watches</a></li>
+                <li><a href="#">Couple Watch</a></li>
+                <li><a href="#">Bands & Boxes</a></li>
+                <li><a href="#">View All</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container12">
+          <a href="#">Sports & Fitness</a>
+          <div class="con12">
+            <div class="con">
+              <ul>
+                <li>Fitness</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Sweat Belts</a></li>
+                <li><a href="#">Exercise Bands</a></li>
+                <li><a href="#">Tummy Trimmers</a></li>
+                <li><a href="#">Skipping Ropes</a></li>
+                <li><a href="#">Hand Grip Strengthener</a></li>
+                <li><a href="#">Yoga</a></li>
+                <li><a href="#">Fitness Accessories</a></li>
+                <li><a href="#">Fitness Gears</a></li>
+              </ul>
+              <ul>
+                <li>Sports</li>
+                <li><a href="#">Cricket</a></li>
+                <li><a href="#">Cycles & Accessories</a></li>
+                <li><a href="#">Skating</a></li>
+                <li><a href="#">Football</a></li>
+                <li><a href="#">Badminton</a></li>
+                <li><a href="#">Volleyball</a></li>
+                <li><a href="#">Fishing</a></li>
+                <li><a href="#">Swimming</a></li>
+                <li><a href="#">View All</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container13">
+          <a href="#">Car & Motorbike</a>
+          <div class="con13">
+            <div class="con">
+              <ul>
+                <li>Bike & Scooty Accessories</li>
+                <li><a href="#">Bike LED Lights</a></li>
+                <li><a href="#">Bike Covers</a></li>
+                <li><a href="#">Bike Accessories</a></li>
+                <li><a href="#">Safety Gear & Clothing</a></li>
+                <li><a href="#">Helmets</a></li>
+                <li><a href="#">Scooty & Activa Accessories</a></li>
+              </ul>
+              <ul>
+                <li>Car Accessories</li>
+                <li><a href="#">Interior Accessories</a></li>
+                <li><a href="#">Car Care & Cleaning</a></li>
+                <li><a href="#">Car Repair Assistance</a></li>
+                <li><a href="#">Car Mobile & Holders</a></li>
+                <li><a href="#">Car Covers</a></li>
+                <li><a href="#">Car Exterior Accessories</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container14">
+          <a href="#">Office Supplies & Stationery</a>
+          <div class="con14">
+            <div class="con">
+              <ul>
+                <li>Office Supplies & Stationery</li>
+                <li><a href="#">View All</a></li>
+                <li><a href="#">Pens & Pencils</a></li>
+                <li><a href="#">Diaries & Notebooks</a></li>
+                <li><a href="#">Art & Craft Supplies</a></li>
+                <li><a href="#">Files & Desks Organizers</a></li>
+                <li><a href="#">Adhesives & Tapes</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container15">
+          <a href="#">Grocery</a>
+          <div class="con15">
+            <div class="con">
+              <ul>
+                <li>Food & Drinks</li>
+                <li><a href="#">Dry Fruits</a></li>
+                <li><a href="#">Masala and spices</a></li>
+                <li><a href="#">Snacks and Namkeens</a></li>
+                <li><a href="#">Pickles</a></li>
+                <li><a href="#">Chocolates & Candies</a></li>
+                <li><a href="#">Biscuit and cookies</a></li>
+                <li><a href="#">Coffee</a></li>
+                <li><a href="#">Tea</a></li>
+                <li><a href="#">View All</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container16">
+          <a href="#">Books</a>
+          <div class="con16">
+            <div class="con">
+              <ul>
+                <li>Fiction & Non Fiction</li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+              </ul>
+              <ul>
+                <li>Academic Books</li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+                <li><a href="#">Children's Books</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container17">
+          <a href="#">Pet Supplies</a>
+          <div class="con17">
+            <div class="con">
+              <ul>
+                <li>Pet Supplies</li>
+                <li><a href="#">Collars & Leashes</a></li>
+                <li><a href="#">Clothes & Grooming</a></li>
+                <li><a href="#">Food & Treats</a></li>
+                <li><a href="#">Aquarium Accessories</a></li>
+                <li><a href="#">Pet Toys</a></li>
+                <li><a href="#">Pet Bowls</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="container18">
+          <a href="#">Musical Instruments</a>
+          <div class="con18">
+            <div class="con">
+              <ul>
+                <li>Musical Instruments</li>
+                <li><a href="#">Dholaks & Drum sets</a></li>
+                <li><a href="#">Piano & Keyboard</a></li>
+                <li><a href="#">String Instruments</a></li>
+                <li><a href="#">Wind Instruments</a></li>
+                <li><a href="#">Musical Accessories</a></li>
+                <li><a href="#">All Musical Instruments</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="imgs">
+      <div class="img1">
+        <img
+          src="https://images.meesho.com/images/marketing/1772432149503.webp"
+          alt=""
+        />
+      </div>
+      <div class="img_t">
+        <h1>Smart Shopping <br />Trusted By Millions</h1>
+        <button type="submit">Shop Now</button>
+      </div>
+    </div>
+    <div class="card">
+      <p>
+        <img
+          src="https://www.meesho.com/assets/Icons/returns.svg"
+          alt=""
+        />&nbsp;7 Days Easy Return
+      </p>
+      <p>
+        <img
+          src="https://www.meesho.com/assets/Icons/cod.svg"
+          alt=""
+        />&nbsp;Cash On Delivery
+      </p>
+      <p>
+        <img
+          src="https://www.meesho.com/assets/Icons/lowest-price.svg"
+          alt=""
+        />&nbsp;Lowest Prices
+      </p>
+    </div>
+    <div class="item">
+      <div class="items">
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1744634654837.webp"
+            alt=""
+          />
+          <p>Fashion</p>
+        </div>
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1744634725496.webp"
+            alt=""
+          />
+          <p>Western Dresses</p>
+        </div>
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1744634780426.webp"
+            alt=""
+          />
+          <p>Menswear</p>
+        </div>
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1744634814643.webp"
+            alt=""
+          />
+          <p>Footwear</p>
+        </div>
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1744634835018.webp"
+            alt=""
+          />
+          <p>Home Decor</p>
+        </div>
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1744634871107.webp"
+            alt=""
+          />
+          <p>Beauty</p>
+        </div>
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1744634909968.webp"
+            alt=""
+          />
+          <p>Accesories</p>
+        </div>
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1744634937295.webp"
+            alt=""
+          />
+          <p>Grocery</p>
+        </div>
+      </div>
+    </div>
+    <div class="four_img">
+      <div class="main_img">
+        <img
+          src="https://images.meesho.com/images/marketing/1744698265981.webp"
+          alt=""
+        />
+      </div>
+      <div class="img4">
+        <img
+          src="https://images.meesho.com/images/marketing/1744722796811.webp"
+          alt=""
+        />
+        <img
+          src="https://images.meesho.com/images/marketing/1744635113661.webp"
+          alt=""
+        />
+        <img
+          src="https://images.meesho.com/images/marketing/1744635139351.webp"
+          alt=""
+        />
+        <img
+          src="https://images.meesho.com/images/marketing/1744635189897.webp"
+          alt=""
+        />
+      </div>
+      <div class="btn">
+        <button type="submit">Shop Now</button>
+      </div>
+    </div>
+    <div class="item_slid">
+      <div class="text">
+        <p>Original Brands</p>
+        <a href="#">VIEW ALL ></a>
+      </div>
+      <div class="slide">
+        <img
+          src="https://images.meesho.com/images/marketing/1744635542873.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1744635521751.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1744635497001.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1744635464683.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1744635432891.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1744635402151.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1744635614888.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1744635646070.webp"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="brands">
+      <marquee
+        behavior="scroll"
+        scrollamount="10"
+        onmouseover="this.stop()"
+        onmouseleave="this.start()"
+        direction="left"
+      >
+        <img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159302944.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1744636558884.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        /><img
+          src="https://images.meesho.com/images/marketing/1743159415385.webp"
+          alt=""
+        />
+      </marquee>
+    </div>
+    <div class="offer">
+      <div class="first">
+        <img
+          src="https://images.meesho.com/images/marketing/1762433553672.webp"
+          alt=""
+        />
+      </div>
+      <div class="item_4">
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1762433786046.webp"
+            alt=""
+          />
+          <p>Trending Now</p>
+        </div>
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1762433761056.webp"
+            alt=""
+          />
+          <p>Budget Buys</p>
+        </div>
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1762433804035.webp"
+            alt=""
+          />
+          <p>Top Rated Picks</p>
+        </div>
+        <div class="img">
+          <img
+            src="https://images.meesho.com/images/marketing/1762433722680.webp"
+            alt=""
+          />
+          <p>Daily Essencial</p>
+        </div>
+      </div>
+      <div class="download">
+        <button type="submit">Download Now</button>
+      </div>
+    </div>
+    <div class="product">
+      <h1>Products for you</h1>
+      <div class="box">
+        <div class="pro_txt">
+          <div class="sort">
+            <p>Sort by:</p>
+            <select name="" title="Sort BY">
+              <option value="">Relevance</option>
+              <option value="">Relevance</option>
+              <option value="">Relevance</option>
+              <option value="">Relevance</option>
+              <option value="">Relevance</option>
+              <option value="">Relevance</option>
+              <option value="">Relevance</option>
+            </select>
+          </div>
+          <div class="pro_detail">
+            <div class="txt">
+              <h4>FILTERS</h4>
+              <p>1000+ Products</p>
+            </div>
+            <hr />
+            <ul>
+              <li class="filter1">
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+                <div class="li_1">
+                  <div class="name">
+                    <input type="text" placeholder="Search" /><br />
+                    <input type="Checkbox" placeholder="0" />&nbsp;Women
+                    T-shirts<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Women Tops &
+                    Tunics<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Analog
+                    Watches<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Fashion<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Fashion<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Fashion<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Fashion<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Fashion<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Fashion<br />
+                  </div>
+                </div>
+              </li>
+              <li class="filter2">
+                Gender<i class="fa fa-angle-down" aria-hidden="true"></i>
+                <div class="li_2">
+                  <div class="name">
+                    <button type="submit">Girls</button>
+                    <button type="submit">Boys</button>
+                    <button type="submit">Women</button>
+                    <button type="submit">Men</button>
+                  </div>
+                </div>
+              </li>
+              <li class="filter3">
+                Color<i class="fa fa-angle-down" aria-hidden="true"></i>
+                <div class="li_3">
+                  <div class="name">
+                    <button type="submit">Pink</button
+                    ><button type="submit">Pink</button
+                    ><button type="submit">Pink</button
+                    ><button type="submit">Pink</button
+                    ><button type="submit">Pink</button
+                    ><button type="submit">Pink</button
+                    ><button type="submit">Pink</button
+                    ><button type="submit">Pink</button>
+                  </div>
+                </div>
+              </li>
+              <li class="filter4">
+                Fabric<i class="fa fa-angle-down" aria-hidden="true"></i>
+                <div class="li_4">
+                  <div class="name">
+                    <input type="text" placeholder="Search" /><br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;Cotton <br />
+                  </div>
+                </div>
+              </li>
+              <li class="filter5">
+                Dial Shape<i class="fa fa-angle-down" aria-hidden="true"></i>
+                <div class="li_5">
+                  <div class="name">
+                    <input type="checkbox" placeholder="0" />&nbsp;Round
+                  </div>
+                </div>
+              </li>
+              <li class="filter6">
+                Size<i class="fa fa-angle-down" aria-hidden="true"></i>
+                <div class="li_6">
+                  <div class="name">
+                    <input type="text" placeholder="Search" /><br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                    <input type="checkbox" placeholder="0" />&nbsp;0-2 years<br />
+                  </div>
+                </div>
+              </li>
+              <li class="filter7">
+                Price<i class="fa fa-angle-down" aria-hidden="true"></i>
+                <div class="li_7">
+                  <div class="name">
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                    <button type="submit">Under ₹149</button>
+                  </div>
+                </div>
+              </li>
+              <li class="filter8">
+                Rating<i class="fa fa-angle-down" aria-hidden="true"></i>
+                <div class="li_8">
+                  <div class="name">
+                    <input type="checkbox" placeholder="0" />&nbsp;2.0 and above
+                    <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;3.0 and above
+                    <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;3.5 and above
+                    <br />
+                    <input type="checkbox" placeholder="0" />&nbsp;4.0 and above
+                    <br />
+                    <input
+                      type="checkbox"
+                      placeholder="0"
+                    />&nbsp;M-Trusted<br />
+                  </div>
+                </div>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+              <li>
+                Category<i class="fa fa-angle-down" aria-hidden="true"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="pro_item">
+          <div class="img">
+            <img
+              src="https://images.meesho.com/images/products/461021810/wykhk_512.avif?width=360"
+              alt=""
+            />
+            <p>Lorem ipsum dolor</p>
+            <div class="price">
+              <h2>₹221</h2>
+              <h3><del>₹250</del></h3>
+              <h4>4% off</h4>
+            </div>
+
+            <p>Free Delivery</p>
+            <div class="rating">
+              <button type="submit">3.9✯</button>
+              <p><a href="#">21534 Reviews</a></p>
+            </div>
+          </div>
+          <div class="img">
+            <img
+              src="https://images.meesho.com/images/products/461021810/wykhk_512.avif?width=360"
+              alt=""
+            />
+            <p>Lorem ipsum dolor</p>
+            <div class="price">
+              <h2>₹221</h2>
+              <h3><del>₹250</del></h3>
+              <h4>4% off</h4>
+            </div>
+
+            <p>Free Delivery</p>
+            <div class="rating">
+              <button type="submit">3.9✯</button>
+              <p><a href="#">21534 Reviews</a></p>
+            </div>
+          </div>
+          <div class="img">
+            <img
+              src="https://images.meesho.com/images/products/461021810/wykhk_512.avif?width=360"
+              alt=""
+            />
+            <p>Lorem ipsum dolor</p>
+            <div class="price">
+              <h2>₹221</h2>
+              <h3><del>₹250</del></h3>
+              <h4>4% off</h4>
+            </div>
+
+            <p>Free Delivery</p>
+            <div class="rating">
+              <button type="submit">3.9✯</button>
+              <p><a href="#">21534 Reviews</a></p>
+            </div>
+          </div>
+          <div class="img">
+            <img
+              src="https://images.meesho.com/images/products/461021810/wykhk_512.avif?width=360"
+              alt=""
+            />
+            <p>Lorem ipsum dolor</p>
+            <div class="price">
+              <h2>₹221</h2>
+              <h3><del>₹250</del></h3>
+              <h4>4% off</h4>
+            </div>
+
+            <p>Free Delivery</p>
+            <div class="rating">
+              <button type="submit">3.9✯</button>
+              <p><a href="#">21534 Reviews</a></p>
+            </div>
+          </div>
+          <div class="img">
+            <img
+              src="https://images.meesho.com/images/products/461021810/wykhk_512.avif?width=360"
+              alt=""
+            />
+            <p>Lorem ipsum dolor</p>
+            <div class="price">
+              <h2>₹221</h2>
+              <h3><del>₹250</del></h3>
+              <h4>4% off</h4>
+            </div>
+
+            <p>Free Delivery</p>
+            <div class="rating">
+              <button type="submit">3.9✯</button>
+              <p><a href="#">21534 Reviews</a></p>
+            </div>
+          </div>
+          <div class="img">
+            <img
+              src="https://images.meesho.com/images/products/461021810/wykhk_512.avif?width=360"
+              alt=""
+            />
+            <p>Lorem ipsum dolor</p>
+            <div class="price">
+              <h2>₹221</h2>
+              <h3><del>₹250</del></h3>
+              <h4>4% off</h4>
+            </div>
+
+            <p>Free Delivery</p>
+            <div class="rating">
+              <button type="submit">3.9✯</button>
+              <p><a href="#">21534 Reviews</a></p>
+            </div>
+          </div>
+          <div class="img">
+            <img
+              src="https://images.meesho.com/images/products/461021810/wykhk_512.avif?width=360"
+              alt=""
+            />
+            <p>Lorem ipsum dolor</p>
+            <div class="price">
+              <h2>₹221</h2>
+              <h3><del>₹250</del></h3>
+              <h4>4% off</h4>
+            </div>
+
+            <p>Free Delivery</p>
+            <div class="rating">
+              <button type="submit">3.9✯</button>
+              <p><a href="#">21534 Reviews</a></p>
+            </div>
+          </div>
+          <div class="img">
+            <img
+              src="https://images.meesho.com/images/products/461021810/wykhk_512.avif?width=360"
+              alt=""
+            />
+            <p>Lorem ipsum dolor</p>
+            <div class="price">
+              <h2>₹221</h2>
+              <h3><del>₹250</del></h3>
+              <h4>4% off</h4>
+            </div>
+
+            <p>Free Delivery</p>
+            <div class="rating">
+              <button type="submit">3.9✯</button>
+              <p><a href="#">21534 Reviews</a></p>
+            </div>
+          </div>
+          <div class="img">
+            <img
+              src="https://images.meesho.com/images/products/461021810/wykhk_512.avif?width=360"
+              alt=""
+            />
+            <p>Lorem ipsum dolor</p>
+            <div class="price">
+              <h2>₹221</h2>
+              <h3><del>₹250</del></h3>
+              <h4>4% off</h4>
+            </div>
+
+            <p>Free Delivery</p>
+            <div class="rating">
+              <button type="submit">3.9✯</button>
+              <p><a href="#">21534 Reviews</a></p>
+            </div>
+          </div>
+          <div class="img">
+            <img
+              src="https://images.meesho.com/images/products/461021810/wykhk_512.avif?width=360"
+              alt=""
+            />
+            <p>Lorem ipsum dolor</p>
+            <div class="price">
+              <h2>₹221</h2>
+              <h3><del>₹250</del></h3>
+              <h4>4% off</h4>
+            </div>
+
+            <p>Free Delivery</p>
+            <div class="rating">
+              <button type="submit">3.9✯</button>
+              <p><a href="#">21534 Reviews</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
